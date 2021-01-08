@@ -1,0 +1,9 @@
+{
+    "User successfully registered": "User successfully registered",
+    "User successfully signed out": "User successfully signed out",
+    "Validation Failed": "Validation Failed",
+    "Unauthorized": "Unauthorized",
+    "Log in was accepted":"Log in was accepted",
+    "The provided code is incorrect or expired": "The provided code is incorrect or expired",
+    "User email verified": "User email verified"
+}

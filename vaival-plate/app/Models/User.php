@@ -7,8 +7,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
+use App\Notifications\VerifyUserEmail;
 
-class User extends Authenticatable implements JWTSubject
+class User extends Authenticatable implements JWTSubject, MustVerifyEmail
 {
     use HasFactory, Notifiable;
 
@@ -22,6 +23,7 @@ class User extends Authenticatable implements JWTSubject
         'first_name',
         'last_name',
         'email',
+        'verification_code',
         'password',
     ];
 
@@ -43,6 +45,17 @@ class User extends Authenticatable implements JWTSubject
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Get the user's first name.
+     *
+     * @param  string  $value
+     * @return string
+     */
+    public function getNameAttribute(){
+        return ucfirst($this->first_name) . ' ' . ucfirst($this->last_name);
+    }
+
     
     /**
      * Get the identifier that will be stored in the subject claim of the JWT.
@@ -60,5 +73,15 @@ class User extends Authenticatable implements JWTSubject
      */
     public function getJWTCustomClaims() {
         return [];
-    }    
+    }
+
+    /**
+     * Send email verification notification.
+     *
+     * @return array
+     */
+    // public function sendEmailVerificationNotification()
+    // {
+    //     $this->notify(new VerifyUserEmail($this));
+    // }
 }
