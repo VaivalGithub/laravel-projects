@@ -1,5 +1,3 @@
-<p align="center"><a href="#" target="_blank"><img src="https://github.com/VaivalGithub/laravel-projects/blob/master/vaival-plate/public/images/vaival-logo.png" width="400"></a></p>
-
 ## Vaival plate is a best place as a starter kit for your fresh laravel-8 project. 
 **Requirements**
 
